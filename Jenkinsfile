@@ -14,7 +14,7 @@ pipeline {
         script {
           def app
           docker.withRegistry("https://registry-tmp.devops-ci", "registry-devops-ci-login") {
-            app = docker.build("swampfox/thirdparty/pgFormatter")
+            app = docker.build("swampfox/thirdparty/pgformatter")
             app.push("4.4-${env.BUILD_ID}")
             app.push("latest")
           }
@@ -30,7 +30,7 @@ pipeline {
         script {
           def app
           docker.withRegistry("https://registry.devops-ci", "registry-devops-ci-login") {
-            app = docker.build("swampfox/thirdparty/pgFormatter")
+            app = docker.build("swampfox/thirdparty/pgformatter")
             app.push("${env.TAG_Name}")
             app.push("latest")
           }
